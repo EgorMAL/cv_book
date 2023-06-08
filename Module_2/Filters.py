@@ -143,3 +143,21 @@ cv2.destroyAllWindows()
 OpenCV filter2D() function is used in python to manipulate images. 
 Everyone can write the kernel themselves to achieve the desired result.
 """
+
+"""
+The function applies a separable linear filter to the image.
+That is, first, every row of src is filtered with the 1D kernel kernelX.
+Then, every column of the result is filtered with the 1D kernel kernelY.
+The final result shifted by delta is stored in dst .
+"""
+
+# Define the separable filter kernels
+kernel_x = np.array([1, 2, 1])
+kernel_y = np.array([1, 0, -1])
+
+# Apply the separable filter
+filtered_image = cv2.sepFilter2D(image, -1, kernel_x, kernel_y)
+cv2.imshow('Original Image', image)
+cv2.imshow('Filtered Image', filtered_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
